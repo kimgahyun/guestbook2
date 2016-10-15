@@ -32,11 +32,7 @@ public class GuestbookDao {
 		try {
 			conn = getConnection();
 			
-			String sql =
-				" delete" +
-				"   from guestbook" +
-				"  where no = ?" +
-				"    and password = ?";
+			String sql = " delete from guestbook where no = ? and password = ?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setLong( 1, vo.getNo() );

@@ -42,7 +42,11 @@ public class GuestbookServlet extends HttpServlet {
 
 			response.sendRedirect("/guestbook2/gb");
 			
+		} else if ("deleteform".equals( actionName ) ) {
+			RequestDispatcher rd = request.getRequestDispatcher( "/WEB-INF/views/deleteform.jsp" );
+			rd.forward( request, response);
 		} else if ("delete".equals(actionName)) {
+		
 			String no = request.getParameter("no");
 			String password = request.getParameter("password");
 
@@ -53,7 +57,7 @@ public class GuestbookServlet extends HttpServlet {
 			GuestbookDao dao = new GuestbookDao();
 			dao.delete(vo);
 
-			response.sendRedirect("/guestbook/gb");
+			response.sendRedirect("/guestbook2/gb");
 		} else {
 			// default action 처리 ( 리스트 처리 )
 			GuestbookDao dao = new GuestbookDao();
